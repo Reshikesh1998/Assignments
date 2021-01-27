@@ -1,0 +1,66 @@
+                            .table {
+                            color: white;
+                            background-color: #1aff66;
+                            column-rule-color: white;
+                        }
+                        
+                        body {
+                            /* background-image: url(bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+                            background-color: rgb(170, 219, 207);
+                        }
+                        
+                        .reglink {
+                            float: right;
+                        }
+                        
+                        p {
+                            color: white;
+                        }
+                        
+                        .menu_bar1 ul {
+                            list-style: none;
+                        }
+                        
+                        .menu_bar1 li {
+                            display: inline-table;
+                            padding-top: 10px;
+                            padding-left: 80px;
+                            color: white;
+                        }
+                        
+                        div.polaroid {
+                            width: 40%;
+                            height: 40%;
+                            box-shadow: 10px 10px 10px grey;
+                            text-align: center;
+                            padding-top: 10px;
+                            border-style: ridge;
+                            background-color: #ec1414;
+                        }
+                        
+                        div.container {
+                            width: 80%;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                            padding-left: 10%;
+                        }
+                        
+                        input[type=email],
+                        input[type=password] {
+                            width: 100%;
+                            padding: 12px 20px;
+                            margin: 8px 0;
+                            display: inline-block;
+                            border: 1px solid #ccc;
+                            box-sizing: border-box;
+                            padding: 10px;
+                            button {
+                                width: 100%;
+                                padding-top: 10px;
+                                margin-top: 20px;
+                                background-color: #ccc transparent;
+                            }
