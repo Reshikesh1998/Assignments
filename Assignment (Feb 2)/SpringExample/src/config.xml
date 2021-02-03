@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+
+<bean id="emp" class="com.thinkitive.Employee" factory-method="getinstance" scope="singleton" autowire="byType"> 
+<!-- Constructor injection  parameterized constructor is called 
+<constructor-arg name="id" value="1"></constructor-arg>
+<constructor-arg name="name" value="ABC"> </constructor-arg>
+<constructor-arg name="salary" value="1222"></constructor-arg>
+-->
+<!--  Setter injection  default constructor is called  and then setter sets the value-->
+<property name="id" value = "2"></property>
+<property name="name" value="xyz"></property>
+<!-- using ref  
+<property name="address" ref = "add"></property>
+-->
+
+<property name="list" >
+<list>
+<value>hello</value>
+<value>hey</value>
+<value>hi</value>
+</list>
+</property>
+<property name="hmap">
+<map>
+<entry>
+<key> 
+<value>1</value>
+</key>
+<value>a</value>
+</entry>
+<entry>
+<key> 
+<value>2</value>
+</key>
+<value>b</value>
+</entry>
+<entry>
+<key> 
+<value>3</value>
+</key>
+<value>c</value>
+</entry>
+</map>
+</property>
+</bean>
+
+<!-- instantiation using factory class <bean id ="hi" class="com.thinkitive.FactoryInstantiation"></bean>
+
+<bean id="add" factory-bean="hi" factory-method="getinstance"></bean>
+-->
+
+<!-- for using autowiring -->
+<bean id="address" class="com.thinkitive.Address"></bean>
+
+
+</beans>
