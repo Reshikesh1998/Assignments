@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.thinkitive.User" table="Userdetails">
+		<id name="id" column="id" type="int">
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="uname" column="uname" type="string"></property>
+		<property name="upass" column="upass" type="string"></property>
+		<property name="designation" column="designation" type="string"></property>
+		<property name="score" column="score" type="int"></property>
+
+	</class>
+	<class name="com.thinkitive.Admin" table="Admindetails">
+		<id name="id" column="id" type="int">
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="uname" column="uname" type="string"></property>
+		<property name="upass" column="upass" type="string"></property>
+
+	</class>
+	
+	<class name="com.thinkitive.QuestionBank" table="QuestionBank">
+		<id name="qno" column="qno" type="int">
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="Question" column="Question" type="string"></property>
+		<property name="option_1" column="option_1" type="string"></property>
+		<property name="option_2" column="option_2" type="string"></property>
+		<property name="option_3" column="option_3" type="string"></property>
+		<property name="option_4" column="option_4" type="string"></property>
+		<property name="answer" column="answer" type="string"></property>
+
+	</class>
+	
+	
+
+	
+
+
+</hibernate-mapping> 
