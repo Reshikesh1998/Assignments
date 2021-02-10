@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+        function ab() {
+            return "hello there i am diablo"
+        }
+
+        document.write('hello world');
+        var e1 = {
+            eid: 1,
+            enmae: "abc",
+            esalary: 1
+        }
+        var e2 = {
+            eid: 1,
+            enmae: "abc",
+            esalary: 1
+        }
+        var e3 = {
+            eid: 1,
+            enmae: "abc",
+            esalary: 1
+        }
+        var e4 = {
+            eid: 1,
+            enmae: "abc",
+            esalary: 1
+        }
+
+        a = [e1, e2, e3, e4];
+        document.write(JSON.stringify(a))
+
+        function val() {
+            var temp = document.getElementById("in").value;
+            var temp2 = document.getElementById("para").innerHTML = temp;
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="text" id="in" />
+    <button onclick="val()">submit</button>
+    <p id="para">Hello to all the viewers</p>
+    <script>
+        document.write(ab())
+    </script>
+</body>
+
+</html>

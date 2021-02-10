@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function check() {
+            var name = document.getElementById("uname").value;
+            var email = document.getElementById("email").value;
+            var upass = document.getElementById("upass").value;
+            var cpass = document.getElementById("cpass").value;
+
+
+            if (upass === cpass) {
+                document.getElementById("output").innerHTML = "Registration Successfull"
+                return true;
+            } else {
+                document.getElementById("output").innerHTML = "Password didnt match"
+                return false;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <form action="http://wwww.google.com" onsubmit="return check()">
+        <label>Username</label>
+        <input type="text" id="uname">
+        <label>Email</label>
+        <input type="email" id="email">
+        <label>password</label>
+        <input type="password" id="upass">
+        <label>password</label>
+        <input type="password" id="cpass">
+        <input type="submit">
+    </form>
+    <p id="output"></p>
+</body>
+
+</html>
