@@ -8,17 +8,30 @@ public class User {
 	private String designation;
 	private int id;
 	private int score;
+	private String status = "Active";
 	
 	public User(String uname, String upass, String designation) {
 		super();
 		this.uname = uname;
 		this.upass = upass;
 		this.designation = designation;
+	
 		
 	}
+	
 	public User() {
 		super();
 	}
+	
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public int getScore() {
 		return score;
 	}
@@ -50,6 +63,8 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,8 +87,10 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [uname=" + uname + ", upass=" + upass + ", designation=" + designation + ", id=" + id + "]";
+		return "User [uname=" + uname + ", upass=" + upass + ", designation=" + designation + ", id=" + id + ", status="
+				+ status + "]";
 	}
+	
 	
 	
 

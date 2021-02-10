@@ -67,11 +67,12 @@ public class AdminController {
 	public ModelAndView checkucred(@RequestBody User user) {
 		session = factory.openSession();
 		tx = session.beginTransaction();
-		//User a = new User(username, password, designation);
+		
 		Criteria c = session.createCriteria(User.class);
 		c.add(Restrictions.ilike("uname", user.getUname()));
 		c.add(Restrictions.ilike("upass", user.getUpass()));
 		c.add(Restrictions.ilike("designation", user.getDesignation()));
+		c.add(Restrictions.ilike("status", "Active"));
 		List l = c.list();
 
 		ModelAndView model = new ModelAndView();
@@ -94,7 +95,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/other")
-	public ModelAndView adminoperation(@RequestBody User user, @RequestParam(name="profile") String profile, @RequestParam(name="options") String options,@RequestParam(name="qno") String qno, @RequestParam(name="id") String id) {
+	public ModelAndView adminoperation(@RequestBody User user,@RequestParam(name="status") String status ,@RequestParam(name="profile") String profile, @RequestParam(name="options") String options,@RequestParam(name="qno") String qno, @RequestParam(name="id") String id) {
 		ModelAndView model = new ModelAndView();
 		session = factory.openSession();
 		tx = session.beginTransaction();
@@ -104,6 +105,7 @@ public class AdminController {
 			{
 				user.setScore(0);
 			}
+			System.err.println(user.toString());
 			session.save(user);
 			model.addObject("message", "Added Successfully");
 		}
@@ -136,6 +138,18 @@ public class AdminController {
 				c.add(Restrictions.ilike("designation", profile));
 				List l = c.list();
 				model.addObject("message", l.toString());
+
+			}
+			if (options.equals("status"))
+
+			{
+
+				User cuser = new User();
+		        cuser = (User) session.get(User.class, Integer.parseInt(id)); 
+		        cuser.setStatus(status);
+		        session.update(cuser); 
+		 
+		        
 
 			}
 
@@ -178,6 +192,19 @@ public class AdminController {
 				model.addObject("message", l.toString());
 
 			}
+			if (options.equals("status"))
+
+			{
+
+				User cuser = new User();
+		        cuser = (User) session.get(User.class, id); 
+		        cuser.setStatus(status);
+		        session.update(cuser); 
+		 
+		        
+
+			}
+
 		}
 
 		// Questions

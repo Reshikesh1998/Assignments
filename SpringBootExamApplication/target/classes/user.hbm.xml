@@ -15,6 +15,7 @@
 		<property name="upass" column="upass" type="string"></property>
 		<property name="designation" column="designation" type="string"></property>
 		<property name="score" column="score" type="int"></property>
+		<property name="status" column="status" type="string"></property>
 
 	</class>
 	<class name="com.thinkitive.Admin" table="Admindetails">

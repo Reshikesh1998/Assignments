@@ -30,8 +30,26 @@ public class StudentController {
 	List<QuestionBank> qlist;
 	int maxsize=0;
 	Answersheet answersheet;
+	int counter= 0;
+	int examnumber=1;
 	
 	
+	public int getExamnumber() {
+		return examnumber;
+	}
+
+	public void setExamnumber(int examnumber) {
+		this.examnumber = examnumber;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
+
 	public StudentController() {
 		cfg = new Configuration();
 		factory = cfg.configure().buildSessionFactory();
@@ -60,7 +78,7 @@ public class StudentController {
 	}
 	
 	@PostMapping("/exam")
-	public ModelAndView exam( @RequestBody User student, @RequestParam (name="id") Integer id) 
+	public ModelAndView exam( @RequestBody User student, @RequestParam (name="id") Integer id, @RequestParam(name ="examno") Integer examno) 
 	{
 		student.setDesignation("student");
 		student.setId(id);
@@ -68,8 +86,20 @@ public class StudentController {
 		setNum(0);
 		Query query = session.createQuery("From QuestionBank");
 		qlist = query.list();
-	
-		maxsize = qlist.size();
+		answersheet.getAnswers().clear();
+		if(examno.equals(1)) {
+			setCounter(0);
+			setNum(getCounter());
+			setExamnumber(1);
+		maxsize = qlist.size()/2;
+		}
+		else if(examno.equals(2)) 
+		{
+			setCounter(qlist.size()/2);
+			setExamnumber(2);
+			setNum(getCounter());
+			maxsize = qlist.size();
+		}
 		String data = qlist.get(num).toString();
 		
 		answersheet.setStduent(student);
@@ -85,6 +115,7 @@ public class StudentController {
 		ModelAndView model = new ModelAndView();
 		if(answer != null) {
 			(answersheet.getAnswers()).put(getNum(), answer);}
+		
 		if(getNum()<(maxsize)-1) 
 		{ 
 			System.err.println(getNum());
@@ -135,6 +166,7 @@ public class StudentController {
 		System.err.println(count);
 		User student= answersheet.getStduent();
 		student.setScore(count);
+		System.out.println("score"+" "+student.getScore() );
 		System.out.println(answersheet.getAnswers().toString());
 		session.update(student);
 		tx.commit();
